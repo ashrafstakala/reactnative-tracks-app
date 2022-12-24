@@ -12,7 +12,7 @@ const Maps = () => {
       });
     } else {
       points.push({
-        latitude: 37.33233 - 1 * 0.002,
+        latitude: 37.33233 - i * 0.002,
         longitude: -122.03121 + i * 0.001,
       });
     }

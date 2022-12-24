@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
+import { requestForegroundPermissionsAsync } from 'expo-location';
 import Maps from '../components/Map';
 
 const TrackCreateScreen = () => {
+  const [err, setErr] = useState(null);
+
+  const startWatching = async () => {
+    try {
+      const { granted } = await requestForegroundPermissionsAsync();
+    } catch (e) {
+      setErr(e);
+    }
+
+    useEffect(() => {
+      startWatching();
+    }, []);
+  };
+
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <Text h2>Create a TRack</Text>
       <Maps />
+      {err ? <Text>Please enable location services</Text> : null}
     </SafeAreaView>
   );
 };
