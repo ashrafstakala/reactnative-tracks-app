@@ -26,7 +26,7 @@ const TrackCreateScreen = () => {
           distanceInterval: 10,
         },
         (location) => {
-          console.log(location);
+          // console.log(location);
         }
       );
     } catch (e) {
