@@ -1,5 +1,5 @@
 import '../_mockLocation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
@@ -9,8 +9,10 @@ import {
   Accuracy,
 } from 'expo-location';
 import Maps from '../components/Map';
+import { Context as LocationContext } from '../context/LocationContext';
 
 const TrackCreateScreen = () => {
+  const { addLocation } = useContext(LocationContext);
   const [err, setErr] = useState(null);
 
   const startWatching = async () => {
@@ -26,7 +28,7 @@ const TrackCreateScreen = () => {
           distanceInterval: 10,
         },
         (location) => {
-          // console.log(location);
+          addLocation(location);
         }
       );
     } catch (e) {
@@ -40,13 +42,19 @@ const TrackCreateScreen = () => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text h2>Create a Track</Text>
+      <Text style={styles.title} h2>
+        Create a Track
+      </Text>
       <Maps />
       {err ? <Text>Please enable location services</Text> : null}
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    marginTop: 30,
+  },
+});
 
 export default TrackCreateScreen;
