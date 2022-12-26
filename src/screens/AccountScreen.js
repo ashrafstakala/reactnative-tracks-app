@@ -11,7 +11,7 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text style={{ fontSize: 48, marginTop: 20 }}> Account Screen</Text>
+      <Text style={styles.title}> Account Screen</Text>
       <Spacer>
         <Button title="Sign out" onPress={signout} />
       </Spacer>
@@ -24,6 +24,13 @@ AccountScreen.navigationOptions = {
   tabBarIcon: <FontAwesome name="gear" size={20} />,
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    marginTop: 40,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+});
 
 export default AccountScreen;

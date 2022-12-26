@@ -27,9 +27,7 @@ const TrackCreateScreen = ({ isFocused }) => {
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <Spacer>
-        <Text style={styles.title} h2>
-          Create a Track
-        </Text>
+        <Text style={styles.title}>Create a Track</Text>
       </Spacer>
       <Maps />
 
@@ -46,7 +44,10 @@ TrackCreateScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   title: {
-    marginTop: 10,
+    marginTop: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
 
