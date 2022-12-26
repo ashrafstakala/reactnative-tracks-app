@@ -12,7 +12,7 @@ const TrackDetailScreen = ({ navigation }) => {
 
   return (
     <>
-      <Text style={{ fontSize: 48, marginTop: 20 }}>{track.trackName}</Text>
+      <Text style={styles.title}>{track.trackName}</Text>
       <MapView
         initialRegion={{
           longitudeDelta: 0.01,
@@ -27,9 +27,20 @@ const TrackDetailScreen = ({ navigation }) => {
   );
 };
 
+TrackDetailScreen.navigationOptions = {
+  title: 'Track detail',
+};
+
 const styles = StyleSheet.create({
   maps: {
     height: 300,
+  },
+  title: {
+    marginTop: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 10,
   },
 });
 

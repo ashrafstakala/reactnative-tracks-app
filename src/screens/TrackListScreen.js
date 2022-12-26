@@ -7,8 +7,6 @@ import { Context as TrackContext } from '../context/TrackContext';
 const TrackListScreen = ({ navigation }) => {
   const { fetchTracks, state } = useContext(TrackContext);
 
-  console.log(state);
-
   return (
     <>
       <NavigationEvents onWillFocus={fetchTracks} />
